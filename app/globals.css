@@ -1,21 +1,240 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Reset styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+li,
+a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Body styles */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  height: 100vh;
+}
+
+.nav-and-main {
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* Sidebar (nav bar) styles */
+/* Reset styles */
+/* ... Các phần còn lại của CSS ... */
+
+/* Sidebar (nav bar) styles */
+nav {
+  background-color: #b1c1a3;
+  width: 200px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  list-style: none; /* Loại bỏ dấu đầu dòng mặc định của danh sách */
+}
+
+nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none; /* Loại bỏ gạch chân của link */
+  color: #333;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #f0f0f0;
+}
+
+nav a i {
+  font-size: 24px; /* Điều chỉnh kích thước icon */
+  margin-bottom: 5px;
+}
+/* Header styles */
+/* Header styles */
+header {
+  background-color: #fff;
+  color: #333;
+  width: calc(
+    100% - 200px
+  ); /* Đảm bảo độ rộng header bằng 100% trừ đi chiều rộng sidebar */
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 200px;
+  height: 60px;
+  z-index: 1000;
+}
+
+main {
+  padding: 80px 20px 20px 20px; /* Thêm padding-top để tránh bị header đè lên */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: calc(
+    100vh - 60px
+  ); /* Đảm bảo chiều cao của main bằng chiều cao của viewport trừ đi chiều cao header */
+  flex-grow: 1;
+  width: calc(100% - 200px); /* Đảm bảo phần main có chiều rộng như header */
+  margin-top: 60px; /* Đảm bảo main bắt đầu từ dưới header */
+  overflow-y: auto; /* Cho phép cuộn nếu nội dung của main quá dài */
+}
+
+/* Logout link styles */
+.logout {
+  font-weight: bold;
+  color: #0078d4;
+  transition: color 0.3s ease;
+}
+
+.logout:hover {
+  color: #005a9e;
+}
+
+/* User info styles */
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 5px;
+  margin-left: auto;
+  margin-right: 50px;
+}
+
+.user-info span {
+  font-weight: bold;
+}
+
+.logout {
+  font-weight: bold;
+  color: #090909;
+  transition: color 0.3s ease;
+  font-style: italic; /* Làm chữ nghiêng */
+  text-decoration: underline; /* Thêm gạch ngang dưới chữ */
+}
+
+.logout:hover {
+  color: #005a9e;
+}
+
+/* Search bar styles */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px; /* Khoảng cách với header */
+  /* Tạo khoảng cách với bảng */
+}
+
+.search-input {
+  position: relative;
+  width: 250px;
+}
+
+.search-input input[type="text"] {
+  width: 100%;
+  padding: 10px 40px 10px 10px; /* Để dành không gian cho icon */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.search-input .icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 18px; /* Điều chỉnh kích thước icon */
+  pointer-events: none; /* Để tránh click vào icon */
+}
+
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005a9e;
+}
+
+/* Table styles */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+}
+
+.action-button {
+  padding: 5px 10px;
+  background-color: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background-color: #005a9e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav {
+    width: 150px;
+  }
+  header {
+    left: 150px;
+    width: calc(100% - 150px);
+  }
 }

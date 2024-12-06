@@ -1,0 +1,14 @@
+.header {
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+
+.nav-item {
+  color: blue;
+  text-decoration: none;
+}
+
+.table-container {
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+}
